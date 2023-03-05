@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package model;
+
+option go_package = ".";
+
+message Course {
+  string id = 1;
+  string name = 2;
+}
+
+message Courses {
+  repeated Course list = 1;
+}
+
+message CoursesID {
+  repeated string coursesID = 1;
+}
+
+service CoursesService {
+  rpc List(CoursesID) returns (Courses);
+}
